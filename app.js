@@ -52,12 +52,16 @@ var routes = require('./routes/index.js');
 // home route gives API status
 app.get('/', routes.index); // calls index function in /routes/index.js
 
-// API routes
-app.post('/api/create', routes.create); // API create route and callback (see /routes/index.js)
-app.get('/api/get/:id', routes.getOne); // API retrieve 1 route and callback (see /routes/index.js)
-app.get('/api/get', routes.getAll); // API retrieve all route and callback (see /routes/index.js)
-app.post('/api/update/:id', routes.update); // API update route and callback (see /routes/index.js)
-app.get('/api/delete/:id', routes.remove); // API delete route and callback (see /routes/index.js)
+// Module API routes
+app.post('/api/create/module', routes.createModule);
+app.get('/api/get/modules', routes.getAllModules);
+app.get('/api/get/module/:id', routes.getOneModule); 
+// app.post('/api/update/module/:id', routes.updateModule);
+// app.get('/api/delete/module/:id', routes.removeModule); 
+
+// TAG API routes
+app.get('/api/get/tags', routes.getAllTags);
+app.get('/api/get/tag/:slug', routes.getOneTag); 
 
 // if route not found, respond with 404
 app.use(function(req, res, next){

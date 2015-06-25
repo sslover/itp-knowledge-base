@@ -18,10 +18,11 @@ var userSchema =  new Schema({
 var User = mongoose.model('User', userSchema);
 
 var moduleSchema = new Schema({
-	tag: {type:String, required:true},
+	tags: [String],
+	url: {type:String, required:true}, // will be a link to a URL
 	title: String,
-	data: {type:String, required:true}, // will be a link to a URL
-	createdBy: {type:Schema.ObjectId, ref:'User'},
+	photo: String,
+	//createdBy: {type:Schema.ObjectId, ref:'User'},
 	dateAdded: {type: Date, default: moment}
 })
 
@@ -29,8 +30,9 @@ var Module = mongoose.model('Module', moduleSchema);
 
 var tagSchema = new Schema({
 	name: {type:String, required:true},
+	slug: {type:String, required:true, unique:true},
 	modules: [{type:Schema.ObjectId, ref:'Module'}], // what modules does the tag have
-	createdBy: {type:Schema.ObjectId, ref:'User'},	
+	//createdBy: {type:Schema.ObjectId, ref:'User'},	
 	dateAdded: {type: Date, default: moment}
 })
 
