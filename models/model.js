@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var moment = require('moment');
 
 // See http://mongoosejs.com/docs/schematypes.html
 var userSchema =  new Schema({
@@ -33,7 +34,7 @@ var tagSchema = new Schema({
 	dateAdded: {type: Date, default: moment}
 })
 
-var Module = mongoose.model('Module', moduleSchema);
+var Tag = mongoose.model('Tag', tagSchema);
 
 // Export Models
 module.exports = {
