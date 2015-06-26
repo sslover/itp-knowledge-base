@@ -22,6 +22,7 @@ var moduleSchema = new Schema({
 	url: {type:String, required:true}, // will be a link to a URL
 	title: String,
 	photo: String,
+	isFeatured: {type: Boolean, default: false},
 	//createdBy: {type:Schema.ObjectId, ref:'User'},
 	dateAdded: {type: Date, default: moment}
 })
@@ -32,6 +33,7 @@ var tagSchema = new Schema({
 	name: {type:String, required:true},
 	slug: {type:String, required:true, unique:true},
 	modules: [{type:Schema.ObjectId, ref:'Module'}], // what modules does the tag have
+	isFeatured: {type: Boolean, default: false},
 	//createdBy: {type:Schema.ObjectId, ref:'User'},	
 	dateAdded: {type: Date, default: moment}
 })

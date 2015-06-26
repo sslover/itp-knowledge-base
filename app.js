@@ -56,12 +56,15 @@ app.get('/', routes.index); // calls index function in /routes/index.js
 app.post('/api/create/module', routes.createModule);
 app.get('/api/get/modules', routes.getAllModules);
 app.get('/api/get/module/:id', routes.getOneModule); 
-// app.post('/api/update/module/:id', routes.updateModule);
-// app.get('/api/delete/module/:id', routes.removeModule); 
+app.post('/api/update/module/:id', routes.updateModule);
+app.get('/api/delete/module/:id', routes.removeModule); 
 
 // TAG API routes
+app.post('/api/create/tag', routes.createTag);
 app.get('/api/get/tags', routes.getAllTags);
 app.get('/api/get/tag/:slug', routes.getOneTag); 
+app.get('/api/delete/tag/:slug', routes.removeTag); 
+app.post('/api/update/tag/:slug', routes.updateTag);
 
 // if route not found, respond with 404
 app.use(function(req, res, next){
